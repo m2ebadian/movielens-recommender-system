@@ -1,0 +1,4 @@
+Model,RMSE,MAE
+Baseline User Mean,0.9413,0.7347
+User-Based CF,0.9676,0.7476
+Item-Based CF,0.9016,0.6801

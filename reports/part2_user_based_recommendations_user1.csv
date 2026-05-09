@@ -1,0 +1,11 @@
+movieId,title,genres,predicted_rating
+318,"Shawshank Redemption, The (1994)",Crime|Drama,4.566033715005959
+475,In the Name of the Father (1993),Drama,4.539097587221379
+4973,"Amelie (Fabuleux destin d'Amélie Poulain, Le) (2001)",Comedy|Romance,4.520750256064517
+296,Pulp Fiction (1994),Comedy|Crime|Drama|Thriller,4.513506602671212
+858,"Godfather, The (1972)",Crime|Drama,4.513029427064398
+79132,Inception (2010),Action|Crime|Drama|Mystery|Sci-Fi|Thriller|IMAX,4.510677975615021
+92259,Intouchables (2011),Comedy|Drama,4.5
+1244,Manhattan (1979),Comedy|Drama|Romance,4.495932592611805
+1223,"Grand Day Out with Wallace and Gromit, A (1989)",Adventure|Animation|Children|Comedy|Sci-Fi,4.485804414405685
+106696,Frozen (2013),Adventure|Animation|Comedy|Fantasy|Musical|Romance,4.484587308676495

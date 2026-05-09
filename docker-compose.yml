@@ -1,0 +1,49 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: cse482-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: cse482_movielens
+      MYSQL_USER: cse482_user
+      MYSQL_PASSWORD: cse482_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./database/mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "cse482_user", "-pcse482_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./webapp/backend
+    container_name: cse482-backend
+    restart: always
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: cse482_movielens
+      MYSQL_USER: cse482_user
+      MYSQL_PASSWORD: cse482_password
+      FLASK_ENV: production
+    ports:
+      - "5001:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./webapp/frontend
+    container_name: cse482-frontend
+    restart: always
+    environment:
+      VITE_API_BASE_URL: http://localhost:5001
+    ports:
+      - "5173:8080"
+    depends_on:
+      - backend
